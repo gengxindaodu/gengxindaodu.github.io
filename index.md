@@ -16,8 +16,8 @@ This is a minimal GitHub Pages site using:
 
 ## Recent Posts
 
-{% for post in site.posts limit:5 %}
-- [{{ post.title }}]({{ post.url }})
+{% for item in site.genesis %}
+  <a href="{{ item.url }}">{{ item.title }}</a>
 {% endfor %}
 
 ## Site Stats
