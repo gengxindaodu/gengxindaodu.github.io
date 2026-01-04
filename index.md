@@ -17,7 +17,7 @@ This is a minimal GitHub Pages site using:
 ## Recent Posts
 
 {% for post in site.posts limit:5 %}
-- [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%B %d, %Y" }}
+- [{{ post.title }}]({{ post.url }})
 {% endfor %}
 
 ## Site Stats
