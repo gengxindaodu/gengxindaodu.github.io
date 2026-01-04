@@ -1,0 +1,12 @@
+title: My Awesome Site
+description: My personal blog about coding
+
+github:
+  is_project_page: false
+  
+# Build settings
+markdown: kramdown
+
+theme: jekyll-theme-cayman
+plugins:
+  - jekyll-feed
