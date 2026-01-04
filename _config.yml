@@ -4,6 +4,11 @@ description: My personal blog about coding
 github:
   is_project_page: false
   
+collections:
+  genesis:
+    output: true
+    permalink: /genesis/:name/
+
 # Build settings
 markdown: kramdown
 
