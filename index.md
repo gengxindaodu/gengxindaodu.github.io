@@ -1,36 +1,7 @@
 ---
-layout: default
-title: Home
+# You don't need to edit this file, it's empty on purpose.
+# Edit theme's home layout instead if you wanna make some changes
+# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+layout: home
 ---
 
-# Welcome to {{ site.title }}
-
-{{ site.description }}
-
-## About This Site
-
-This is a minimal GitHub Pages site using:
-- **Jekyll Theme**: Cayman
-- **Liquid Templating**: For dynamic content
-- **Markdown**: For easy writing
-
-## Recent Posts
-
-{% for item in site.genesis %}
-  <a href="{{ item.url }}">{{ item.title }}</a>
-{% endfor %}
-
-## Site Stats
-
-- Total Posts: **{{ site.posts | size }}**
-- Last Updated: **{{ site.time | date: "%B %d, %Y" }}**
-
----
-
-### Quick Liquid Examples
-
-**Current date:** {{ "now" | date: "%A, %B %d, %Y" }}
-
-**Uppercase text:** {{ "hello world" | upcase }}
-
-**Math:** {{ 5 | plus: 3 }} equals 8

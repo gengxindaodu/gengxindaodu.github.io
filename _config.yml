@@ -1,17 +1,44 @@
-title: My Awesome Site
-description: My personal blog about coding
+title: 「每日讀經，與主同行」 
+email: peixian@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+    帮助屬靈生命成长的兩年讀經計劃。所有材料均由【西雅圖證道堂】東區國語堂提供。 
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://bibleplan.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+github_username: bibleplan
+repository: bibleplan/bibleplan.github.io
+repo: https://github.com/bibleplan/bibleplan.github.io
+lang: zh-Hant
 
 github:
   is_project_page: false
   
-collections:
-  genesis:
-    output: true
-    permalink: /genesis/:name/
-
 # Build settings
 markdown: kramdown
 
 theme: jekyll-theme-cayman
 plugins:
   - jekyll-feed
+timezone: Africa/Maputo
+# this makes 2PM the daychange time for PST (no daylight saving)
+
+# regenerate only modified posts to improve performance
+# incremental: true
+
+# Google Analytics
+# google_analytics: UA—114680216-1
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+exclude:
+  - template/
+  - .github/workflows/*.yml
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - Rakefile
+  - README.md
