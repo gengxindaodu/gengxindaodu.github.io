@@ -1,0 +1,112 @@
+---
+layout: default
+title: 圣经书卷
+---
+
+<div class="books-page">
+  <h1>圣经书卷</h1>
+  <p class="subtitle">66卷书分类浏览</p>
+
+  {% for testament in site.bible_books %}
+  <section class="testament-section">
+    <h2>{{ testament[0] }}</h2>
+    <div class="books-grid">
+      {% for book in testament[1] %}
+      <div class="book-card">
+        <h3>{{ book.name }}</h3>
+        <p class="book-abbr">{{ book.abbr | upcase }}</p>
+        <p class="book-chapters">共 {{ book.chapters }} 章</p>
+        <a href="{{ site.baseurl }}/books/{{ book.abbr }}/" class="book-link">查看详情</a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+</div>
+
+<style>
+.books-page {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.books-page h1 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.books-page .subtitle {
+  color: #7f8c8d;
+  margin-bottom: 2rem;
+}
+
+.testament-section {
+  margin-bottom: 3rem;
+}
+
+.testament-section h2 {
+  color: #34495e;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #3498db;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.book-card {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.book-card h3 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.book-abbr {
+  color: #7f8c8d;
+  font-family: monospace;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.book-chapters {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.book-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.book-link:hover {
+  background-color: #2980b9;
+}
+
+@media (max-width: 768px) {
+  .books-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+</style>

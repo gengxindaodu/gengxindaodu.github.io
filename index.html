@@ -1,0 +1,45 @@
+---
+layout: default
+title: 首页
+---
+
+<div class="home">
+  <h1>两年读经计划</h1>
+  <p class="subtitle">730天完整读完圣经</p>
+  
+  <div class="intro">
+    <h2>关于本计划</h2>
+    <p>这是一个为期两年（730天）的读经计划，帮助您系统地阅读整本圣经。每天都有指定的经文章节，以及相关的读经分享。</p>
+  </div>
+
+  <div class="navigation">
+    <h2>开始阅读</h2>
+    <div class="button-group">
+      <a href="{{ site.baseurl }}/reading/day-001/" class="button primary">从第一天开始</a>
+      <a href="{{ site.baseurl }}/calendar/" class="button">查看日历</a>
+      <a href="{{ site.baseurl }}/books/" class="button">按书卷浏览</a>
+    </div>
+  </div>
+
+  <div class="recent-readings">
+    <h2>最近更新</h2>
+    <ul class="reading-list">
+      {% assign sorted_readings = site.daily_readings | sort: 'day' | reverse %}
+      {% for reading in sorted_readings limit:10 %}
+      <li>
+        <a href="{{ reading.url | relative_url }}">
+          <span class="day-number">第 {{ reading.day }} 天</span>
+          <span class="passage">{{ reading.passage }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="stats">
+    <h2>进度统计</h2>
+    <p>总天数: 730天</p>
+    <p>已完成: <span id="completed-days">0</span> 天</p>
+    <p>完成百分比: <span id="progress-percent">0</span>%</p>
+  </div>
+</div>

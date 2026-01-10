@@ -1,0 +1,81 @@
+---
+layout: default
+title: 读经日历
+---
+
+<div class="calendar-page">
+  <h1>读经日历</h1>
+  <p class="subtitle">730天读经计划日历</p>
+
+  <div class="calendar-grid">
+    {% assign sorted_readings = site.daily_readings | sort: 'day' %}
+    {% for reading in sorted_readings %}
+    <div class="calendar-item">
+      <a href="{{ reading.url | relative_url }}">
+        <div class="day-number">Day {{ reading.day }}</div>
+        <div class="passage">{{ reading.passage }}</div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.calendar-page {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.calendar-page h1 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.calendar-page .subtitle {
+  color: #7f8c8d;
+  margin-bottom: 2rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.calendar-item {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.calendar-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.calendar-item a {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.calendar-item .day-number {
+  font-weight: bold;
+  color: #e74c3c;
+  margin-bottom: 0.5rem;
+}
+
+.calendar-item .passage {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .calendar-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+</style>

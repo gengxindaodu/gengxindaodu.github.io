@@ -1,0 +1,97 @@
+---
+layout: default
+---
+
+<article class="reading-page">
+  <header class="reading-header">
+    <div class="day-info">
+      <span class="day-label">第</span>
+      <span class="day-number">{{ page.day }}</span>
+      <span class="day-label">天</span>
+    </div>
+    <h1 class="passage-title">{{ page.passage }}</h1>
+    <p class="date">{{ page.date | date: "%Y年%m月%d日" }}</p>
+  </header>
+
+  <nav class="reading-navigation">
+    {% if page.day > 1 %}
+      {% assign prev_day = page.day | minus: 1 %}
+      {% assign prev_day_str = prev_day | prepend: '00' | slice: -3, 3 %}
+      <a href="{{ site.baseurl }}/reading/day-{{ prev_day_str }}/" class="nav-button prev">
+        ← 上一天
+      </a>
+    {% else %}
+      <span class="nav-button disabled">← 上一天</span>
+    {% endif %}
+    
+    <a href="{{ site.baseurl }}/calendar/" class="nav-button calendar">日历</a>
+    
+    {% if page.day < 730 %}
+      {% assign next_day = page.day | plus: 1 %}
+      {% assign next_day_str = next_day | prepend: '00' | slice: -3, 3 %}
+      <a href="{{ site.baseurl }}/reading/day-{{ next_day_str }}/" class="nav-button next">
+        下一天 →
+      </a>
+    {% else %}
+      <span class="nav-button disabled">下一天 →</span>
+    {% endif %}
+  </nav>
+
+  <section class="scripture-content">
+    <h2>今日经文</h2>
+    <div class="scripture-text">
+      {{ content }}
+    </div>
+    
+    {% if page.notes %}
+    <div class="reading-notes">
+      <h3>读经笔记</h3>
+      {{ page.notes }}
+    </div>
+    {% endif %}
+  </section>
+
+  {% if page.reflections %}
+  <section class="reflections-section">
+    <h2>读经分享</h2>
+    <div class="reflections-list">
+      {% for reflection_id in page.reflections %}
+        {% assign reflection = site.reflections | where: "reflection_id", reflection_id | first %}
+        {% if reflection %}
+        <div class="reflection-card">
+          <h3>
+            <a href="{{ reflection.url | relative_url }}">{{ reflection.title }}</a>
+          </h3>
+          <p class="author">作者: {{ reflection.author }}</p>
+          <p class="excerpt">{{ reflection.excerpt | strip_html | truncate: 150 }}</p>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <nav class="reading-navigation bottom">
+    {% if page.day > 1 %}
+      {% assign prev_day = page.day | minus: 1 %}
+      {% assign prev_day_str = prev_day | prepend: '00' | slice: -3, 3 %}
+      <a href="{{ site.baseurl }}/reading/day-{{ prev_day_str }}/" class="nav-button prev">
+        ← 上一天
+      </a>
+    {% else %}
+      <span class="nav-button disabled">← 上一天</span>
+    {% endif %}
+    
+    <a href="{{ site.baseurl }}/calendar/" class="nav-button calendar">日历</a>
+    
+    {% if page.day < 730 %}
+      {% assign next_day = page.day | plus: 1 %}
+      {% assign next_day_str = next_day | prepend: '00' | slice: -3, 3 %}
+      <a href="{{ site.baseurl }}/reading/day-{{ next_day_str }}/" class="nav-button next">
+        下一天 →
+      </a>
+    {% else %}
+      <span class="nav-button disabled">下一天 →</span>
+    {% endif %}
+  </nav>
+</article>

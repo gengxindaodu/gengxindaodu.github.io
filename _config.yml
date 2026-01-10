@@ -1,44 +1,102 @@
-title: 「每日讀經，與主同行」 
-email: peixian@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-    帮助屬靈生命成长的兩年讀經計劃。所有材料均由【西雅圖證道堂】東區國語堂提供。 
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://gengxindaodu.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-github_username: gengxindaodu
-repository: gengxindaodu/gengxindaodu.github.io
-repo: https://github.com/gengxindaodu/gengxindaodu.github.io
-lang: zh-Hant
+# 两年读经计划 Jekyll 配置
+title: 两年读经计划
+description: 730天完整读完圣经
+baseurl: "" # 如果你的repo名不是 username.github.io，改为 "/repo-name"
+url: "" # 你的GitHub Pages URL
 
-github:
-  is_project_page: false
-  
-# Build settings
+# 构建设置
 markdown: kramdown
+permalink: pretty
 
-theme: jekyll-theme-cayman
-plugins:
-  - jekyll-feed
-timezone: Africa/Maputo
-# this makes 2PM the daychange time for PST (no daylight saving)
+# 集合配置
+collections:
+  daily_readings:
+    output: true
+    permalink: /reading/:path/
+  reflections:
+    output: true
+    permalink: /reflection/:path/
 
-# regenerate only modified posts to improve performance
-# incremental: true
+# 默认值
+defaults:
+  - scope:
+      path: ""
+      type: "daily_readings"
+    values:
+      layout: "reading"
+  - scope:
+      path: ""
+      type: "reflections"
+    values:
+      layout: "reflection"
 
-# Google Analytics
-# google_analytics: UA—114680216-1
-
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-exclude:
-  - template/
-  - .github/workflows/*.yml
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
-  - Rakefile
-  - README.md
+# 圣经书卷列表
+bible_books:
+  旧约:
+    - { name: "创世记", abbr: "gen", chapters: 50 }
+    - { name: "出埃及记", abbr: "exo", chapters: 40 }
+    - { name: "利未记", abbr: "lev", chapters: 27 }
+    - { name: "民数记", abbr: "num", chapters: 36 }
+    - { name: "申命记", abbr: "deu", chapters: 34 }
+    - { name: "约书亚记", abbr: "jos", chapters: 24 }
+    - { name: "士师记", abbr: "jdg", chapters: 21 }
+    - { name: "路得记", abbr: "rut", chapters: 4 }
+    - { name: "撒母耳记上", abbr: "1sa", chapters: 31 }
+    - { name: "撒母耳记下", abbr: "2sa", chapters: 24 }
+    - { name: "列王纪上", abbr: "1ki", chapters: 22 }
+    - { name: "列王纪下", abbr: "2ki", chapters: 25 }
+    - { name: "历代志上", abbr: "1ch", chapters: 29 }
+    - { name: "历代志下", abbr: "2ch", chapters: 36 }
+    - { name: "以斯拉记", abbr: "ezr", chapters: 10 }
+    - { name: "尼希米记", abbr: "neh", chapters: 13 }
+    - { name: "以斯帖记", abbr: "est", chapters: 10 }
+    - { name: "约伯记", abbr: "job", chapters: 42 }
+    - { name: "诗篇", abbr: "psa", chapters: 150 }
+    - { name: "箴言", abbr: "pro", chapters: 31 }
+    - { name: "传道书", abbr: "ecc", chapters: 12 }
+    - { name: "雅歌", abbr: "sng", chapters: 8 }
+    - { name: "以赛亚书", abbr: "isa", chapters: 66 }
+    - { name: "耶利米书", abbr: "jer", chapters: 52 }
+    - { name: "耶利米哀歌", abbr: "lam", chapters: 5 }
+    - { name: "以西结书", abbr: "ezk", chapters: 48 }
+    - { name: "但以理书", abbr: "dan", chapters: 12 }
+    - { name: "何西阿书", abbr: "hos", chapters: 14 }
+    - { name: "约珥书", abbr: "jol", chapters: 3 }
+    - { name: "阿摩司书", abbr: "amo", chapters: 9 }
+    - { name: "俄巴底亚书", abbr: "oba", chapters: 1 }
+    - { name: "约拿书", abbr: "jon", chapters: 4 }
+    - { name: "弥迦书", abbr: "mic", chapters: 7 }
+    - { name: "那鸿书", abbr: "nam", chapters: 3 }
+    - { name: "哈巴谷书", abbr: "hab", chapters: 3 }
+    - { name: "西番雅书", abbr: "zep", chapters: 3 }
+    - { name: "哈该书", abbr: "hag", chapters: 2 }
+    - { name: "撒迦利亚书", abbr: "zec", chapters: 14 }
+    - { name: "玛拉基书", abbr: "mal", chapters: 4 }
+  新约:
+    - { name: "马太福音", abbr: "mat", chapters: 28 }
+    - { name: "马可福音", abbr: "mrk", chapters: 16 }
+    - { name: "路加福音", abbr: "luk", chapters: 24 }
+    - { name: "约翰福音", abbr: "jhn", chapters: 21 }
+    - { name: "使徒行传", abbr: "act", chapters: 28 }
+    - { name: "罗马书", abbr: "rom", chapters: 16 }
+    - { name: "哥林多前书", abbr: "1co", chapters: 16 }
+    - { name: "哥林多后书", abbr: "2co", chapters: 13 }
+    - { name: "加拉太书", abbr: "gal", chapters: 6 }
+    - { name: "以弗所书", abbr: "eph", chapters: 6 }
+    - { name: "腓立比书", abbr: "php", chapters: 4 }
+    - { name: "歌罗西书", abbr: "col", chapters: 4 }
+    - { name: "帖撒罗尼迦前书", abbr: "1th", chapters: 5 }
+    - { name: "帖撒罗尼迦后书", abbr: "2th", chapters: 3 }
+    - { name: "提摩太前书", abbr: "1ti", chapters: 6 }
+    - { name: "提摩太后书", abbr: "2ti", chapters: 4 }
+    - { name: "提多书", abbr: "tit", chapters: 3 }
+    - { name: "腓利门书", abbr: "phm", chapters: 1 }
+    - { name: "希伯来书", abbr: "heb", chapters: 13 }
+    - { name: "雅各书", abbr: "jas", chapters: 5 }
+    - { name: "彼得前书", abbr: "1pe", chapters: 5 }
+    - { name: "彼得后书", abbr: "2pe", chapters: 3 }
+    - { name: "约翰一书", abbr: "1jn", chapters: 5 }
+    - { name: "约翰二书", abbr: "2jn", chapters: 1 }
+    - { name: "约翰三书", abbr: "3jn", chapters: 1 }
+    - { name: "犹大书", abbr: "jud", chapters: 1 }
+    - { name: "启示录", abbr: "rev", chapters: 22 }
