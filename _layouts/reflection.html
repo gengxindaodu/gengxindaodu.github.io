@@ -7,7 +7,6 @@ layout: default
     <h1>{{ page.title }}</h1>
     <div class="meta">
       <span class="author">作者: {{ page.author }}</span>
-      <span class="date">{{ page.date | date: "%Y年%m月%d日" }}</span>
     </div>
     {% if page.passage %}
     <p class="passage-reference">经文: {{ page.passage }}</p>
@@ -32,7 +31,7 @@ layout: default
     <a href="{{ site.baseurl }}/" class="nav-button">返回首页</a>
     {% if page.related_day %}
       {% assign day_str = page.related_day | prepend: '00' | slice: -3, 3 %}
-      <a href="{{ site.baseurl }}/reading/day-{{ day_str }}/" class="nav-button">查看当日读经</a>
+      <a href="{{ site.baseurl }}/reading/day-{{ day_str }}/" class="nav-button">相关读经</a>
     {% endif %}
   </nav>
 </article>
