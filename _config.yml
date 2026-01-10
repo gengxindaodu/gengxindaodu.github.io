@@ -6,7 +6,11 @@ url: "" # 你的GitHub Pages URL
 
 # 构建设置
 markdown: kramdown
-permalink: pretty
+theme: jekyll-theme-cayman
+plugins:
+  - jekyll-feed
+
+# permalink: pretty
 
 # 集合配置
 collections:
